@@ -1,0 +1,20 @@
+Message stats for scenario PeopleRank2
+sim_time: 8490908.0000
+created: 846
+started: 428138
+relayed: 426105
+aborted: 2033
+dropped: 426767
+removed: 0
+delivered: 182
+delivery_prob: 0.2151
+response_prob: 0.0000
+overhead_ratio: 2340.2363
+latency_avg: 456030.9780
+latency_med: 478166.0000
+hopcount_avg: 35.8846
+hopcount_med: 7
+buffertime_avg: 11852.8113
+buffertime_med: 404.0000
+rtt_avg: NaN
+rtt_med: NaN
