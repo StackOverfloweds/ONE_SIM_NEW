@@ -1,0 +1,82 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+  
+      {
+        "type": "java",
+        "name": "default conf",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./default_settings.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "wald conf",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./connection-wald2.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "DTNSim 2",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "1",
+          "./default_settings.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "SnF conf",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./SnF_settings2.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "SnF conf2",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./SnF_settings3.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "SnW conf",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./snw_settings.txt"
+        ]
+      },
+      {
+        "type": "java",
+        "name": "prophet conf",
+        "request": "launch",
+        "mainClass": "core.DTNSim",
+        "args": [
+          "-b",
+          "1",
+          "./conf/SprayAndWaitRouterUpdateForward_settings.txt"
+        ]
+      },
+    ]
+  }
