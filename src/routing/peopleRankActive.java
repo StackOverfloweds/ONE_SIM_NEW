@@ -6,7 +6,6 @@ package routing;
 
 import core.*;
 import java.util.*;
-import javax.print.attribute.standard.MediaSize;
 import routing.community.*;
 import routing.util.TupleDe;
 
@@ -17,6 +16,8 @@ public class peopleRankActive extends ActiveRouter {
 
     /** Prophet router's setting namespace ({@value})*/ 
 	public static final String PeopleRank_NS = "PeopleRank";
+    public static final String MSG_COUNT_PROPERTY = PeopleRank_NS + "." +
+		"copies";
 
     // Community detection and damping factor
     protected double dumpingFactor; // Damping factor used in the PeopleRank algorithm
@@ -86,8 +87,36 @@ public class peopleRankActive extends ActiveRouter {
                     }
                     history.add(new Duration(duration, SimClock.getTime()));
                 }
+
+                 /**
+                 * Update connHistory, Total FriendRank, and totalFriend and save it in per
+                 * every time connection Down
+                 */
+
+                  // i use iterator fo loop
+                Iterator <Map.Entry<DTNHost, List<Duration >>> iterator = connHistory.entrySet().iterator();
+
+               while (iterator.hasNext()) {
+
+               Map.Entry<DTNHost, List <Duration>> entry = iterator.next();
+
+               double friendRank = calculatePer(entry.getKey());
+
+              //get total number of friend
+               Set <DTNHost> Fj = new HashSet<>(connHistory.keySet());
+               Fj.add(other);
+               int totalFriend = Fj.size();
+
+               //create a new tuple with the friend rank adn total number of friend
+               TupleDe <Double, Integer> tuple = new TupleDe<>(friendRank, totalFriend);
+
+               //update the tuple in the per map
+               per.put(other, tuple);
+        }
             }
         }
+
+        
 
     
      /**
@@ -127,6 +156,24 @@ public class peopleRankActive extends ActiveRouter {
         }
         return (1 - dumpingFactor) + dampingFactor * sum ;
      }
+
+    
+     @Override
+     public void update()
+     {
+        super.update();
+        if (!canStartTransfer() || isTransferring()) {
+            return;
+        }
+
+        if (exchangeDeliverableMessages() != null)
+        {
+            return;
+        }
+
+     }
+
+
 
 
 
