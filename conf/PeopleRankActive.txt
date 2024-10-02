@@ -34,9 +34,9 @@ Scenario.nrofHostGroups = 6
 Group.movementModel = RandomWaypoint
 
 #For Active
-Group.router = PeopleRankRouter
-PeopleRankRouter.familiarThreshold = 700
-PeopleRankRouter.dumpingFactor = 0.85
+Group.router = PeopleRankActiveRouter
+PeopleRankActiveRouter.familiarThreshold = 700
+PeopleRankActiveRouter.dumpingFactor = 0.85
 
 Group.bufferSize = 5M
 Group.waitTime = 0, 120
@@ -49,9 +49,11 @@ Group.speed = 0.5, 1.5
 Group.msgTtl = 300
 
 Group.nrofHosts = 40
+Group.dumpingFactor=0.85
 
 # group1 (pedestrians) specific settings
 Group1.groupID = p
+Group1.dumpingFactor=0.85
 
 # group2 specific settings
 Group2.groupID = c

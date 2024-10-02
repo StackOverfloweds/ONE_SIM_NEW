@@ -2,6 +2,7 @@
  * Copyright 2024 HaiPigGi (Bryan)
  * 
  */
+
 package routing;
 
 import core.*;
@@ -9,13 +10,14 @@ import java.util.*;
 import routing.community.*;
 import routing.util.TupleDe;
 
-public class peopleRankActive extends ActiveRouter {
+
+public class PeopleRankActiveRouter extends ActiveRouter {
     /*Initialitation variable Dumping factor to empty */
     public static final String DUMPING_FACTOR_SETTING = "dumpingFactor";
     public static final String TRESHOLD_SETTING = "treshold";
 
-    /** PeopleRank router's setting namespace ({@value})*/ 
-	public static final String PeopleRank_NS = "PeopleRankRouter";
+    /** PeopleRank router's setting namespace ({@value}) **/ 
+	public static final String PeopleRank_NS = "PeopleRankActiveRouter";
     public static final String MSG_COUNT_PROPERTY = PeopleRank_NS + "." +
 		"copies";
 
@@ -33,7 +35,7 @@ public class peopleRankActive extends ActiveRouter {
      * Create Constructor
      * @param s
      */
-    public peopleRankActive (Settings s)
+    public PeopleRankActiveRouter (Settings s)
     {
         super(s);
         Settings peopleActive = new Settings (PeopleRank_NS);
@@ -57,7 +59,7 @@ public class peopleRankActive extends ActiveRouter {
      * @param pr
      */
 
-     public peopleRankActive (peopleRankActive pr) 
+     public PeopleRankActiveRouter (PeopleRankActiveRouter pr) 
      {
         super (pr);
         //replicate 
@@ -262,9 +264,8 @@ public class peopleRankActive extends ActiveRouter {
     return null; // If no message is forwarded, return null
      }
     @Override
-    public  peopleRankActive replicate () {
-        peopleRankActive p = new peopleRankActive(this);
-        return p;
+    public  PeopleRankActiveRouter replicate () {
+        return new PeopleRankActiveRouter (this);
     }
 
 }
