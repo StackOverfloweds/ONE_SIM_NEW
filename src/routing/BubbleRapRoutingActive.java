@@ -60,10 +60,48 @@ public class BubbleRapRoutingActive extends ActiveRouter {
     public void changedConnection (Connection con) 
     {
         DTNHost other = con.getOtherNode(getHost());
+        DTNHost thisHost = getHost();
         if (con.isUp()) {
             startTimestamps.put(other, SimClock.getTime());
+        } else {
+            double time = check(thisHost, other);
+            double eTime = SimClock.getTime();
+
+            List <Duration> history;
+            if (!connHistory.containsKey(other)) {
+                history = new LinkedList<Duration>();
+                connHistory.put(other, history);
+            } else {
+                history = connHistory.get(other);
+            }
+
+            if (eTime - time >0)
+            {
+                history.add(new Duration(time,eTime));
+            }
+
+            CommunityDetection peerCD = this.getRouter(other).community;
+            community.connectionLost(thisHost, other, peerCD, history);
+
+            startTimestamps.remove(other);
+
         }
     }
+    //create to check time contact this host and other
+    private  double check (DTNHost thisHost, DTNHost peer)
+    {
+        if (startTimestamps.containsKey(thisHost)) {
+            startTimestamps.get(peer);
+        }
+        return 0;
+    }
+    private BubbleRapRoutingActive getRouter(DTNHost h) {
+        MessageRouter otherRouter = h.getRouter();
+        assert otherRouter instanceof ActiveRouter : "This router only works with other routers of the same type";
+    
+        return (BubbleRapRoutingActive) otherRouter;
+    }
+    
 
 
 
