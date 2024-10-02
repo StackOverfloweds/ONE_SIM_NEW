@@ -1,0 +1,20 @@
+Message stats for scenario spray_and_wait_with_Forwarding_Prophet
+sim_time: 43200.1000
+created: 1463
+started: 8906
+relayed: 3658
+aborted: 5246
+dropped: 4169
+removed: 0
+delivered: 73
+delivery_prob: 0.0499
+response_prob: 0.0000
+overhead_ratio: 49.1096
+latency_avg: 8661.5014
+latency_med: 8269.7000
+hopcount_avg: 2.5479
+hopcount_med: 2
+buffertime_avg: 7154.3662
+buffertime_med: 6610.1000
+rtt_avg: NaN
+rtt_med: NaN

@@ -1,0 +1,53 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "default conf",
+            "request": "launch",
+            "mainClass": "core.DTNSim",
+            "args": [
+                "-b",
+                "1",
+                "./conf/default_settings.txt"
+            ],
+            "preLaunchCommand": "bash compile.sh"
+        },
+        {
+            "type": "java",
+            "name": "prophet conf",
+            "request": "launch",
+            "mainClass": "core.DTNSim",
+            "args": [
+                "-b",
+                "1",
+                "./conf/SprayAndWaitRouterUpdateForward_settings.txt"
+            ],
+            "preLaunchCommand": "bash compile.sh"
+        },
+        {
+            "type": "java",
+            "name": "bubble rap conf",
+            "request": "launch",
+            "mainClass": "core.DTNSim",
+            "args": [
+                "-b",
+                "1",
+                "./conf/bubleRap_setting.txt"
+            ],
+            "preLaunchCommand": "bash compile.sh"
+        },
+        {
+            "type": "java",
+            "name": "People Rank Active conf",
+            "request": "launch",
+            "mainClass": "core.DTNSim",
+            "args": [
+                "-b",
+                "1",
+                "./conf/PeopleRankActive.txt"
+            ],
+            "preLaunchCommand": "bash compile.sh"
+        }
+    ]
+}

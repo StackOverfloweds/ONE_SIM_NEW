@@ -1,0 +1,20 @@
+Message stats for scenario bubble_rap
+sim_time: 43200.1000
+created: 1463
+started: 45196
+relayed: 20336
+aborted: 24859
+dropped: 20263
+removed: 196
+delivered: 257
+delivery_prob: 0.1757
+response_prob: 0.0000
+overhead_ratio: 78.1284
+latency_avg: 5666.6553
+latency_med: 4893.8000
+hopcount_avg: 2.7549
+hopcount_med: 3
+buffertime_avg: 1778.1057
+buffertime_med: 998.7000
+rtt_avg: NaN
+rtt_med: NaN
