@@ -101,6 +101,16 @@ public class BubbleRapRoutingActive extends ActiveRouter {
     
         return (BubbleRapRoutingActive) otherRouter;
     }
+
+    @Override
+    public boolean createNewMessage (Message msg)
+    {
+        makeRoomForNewMessage(msg.getSize());
+        msg.setTtl(this.msgTtl);
+        // msg.addProperty(MSG_COUNT_PROPERTY, community);
+        addToMessages(msg, true);
+        return true;
+    }
     
 
 
