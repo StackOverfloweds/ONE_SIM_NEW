@@ -22,4 +22,13 @@ public class Duration
 	 * @param e Initial end value
 	 */
 	public Duration(double s, double e) {start = s; end = e;}
+
+	 /**
+     * Method to calculate the duration as the difference between end and start.
+     * 
+     * @return The duration (end - start)
+     */
+    public double getDuration() {
+        return end - start;
+    }
 }
